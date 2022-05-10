@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapp
+spec:
+  ingressClassName: public-iks-k8s-nginx
+  rules:
+  - host: webapp.guard-a0206070f21a2eaea82ecfb39c08d3bd-0000.eu-de.containers.appdomain.cloud
+    http:
+      paths:
+      - backend:
+          service:
+            name: webapp
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
